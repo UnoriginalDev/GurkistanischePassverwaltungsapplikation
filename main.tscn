@@ -31,11 +31,83 @@ tab_alignment = 2
 current_tab = 1
 
 [node name="TabBar" type="TabBar" parent="CanvasLayer/Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/TabContainer/TabBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_right = 275.0
+offset_bottom = 290.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer"]
+custom_minimum_size = Vector2(520, 240)
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "[a] Name/Surname"
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+placeholder_text = "Bitte ausfüllen"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "[b] Geburtsname/ Name at Birth"
+
+[node name="TextEdit2" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+placeholder_text = "Bitte ausfüllen"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Vorname/ Given names"
+
+[node name="TextEdit3" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+placeholder_text = "Bitte ausfüllen"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Geburtstag/Date of Birth"
+
+[node name="TextEdit4" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+placeholder_text = "Bitte ausfüllen"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Gebortsort/Place of Birth"
+
+[node name="TextEdit5" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+placeholder_text = "Bitte ausfüllen"
+
+[node name="Label6" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Gültig bis/Date of Expiry"
+
+[node name="TextEdit6" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 2
+placeholder_text = "Bitte ausfüllen"
+
 [node name="TabBar2" type="TabBar" parent="CanvasLayer/Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -65,3 +137,105 @@ stretch_mode = 4
 layout_mode = 2
 texture = ExtResource("1_i1h4m")
 expand_mode = 5
+
+[node name="LabelsFront" type="Control" parent="CanvasLayer/Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/LabelsFront"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "[a] Name/Surname"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/LabelsFront"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "[b] Geburtsname/ Name at Birth"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/LabelsFront"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Vorname/ Given names"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control/LabelsFront"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Geburtstag/Date of Birth"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control/LabelsFront"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Gebortsort/Place of Birth"
+
+[node name="Label6" type="Label" parent="CanvasLayer/Control/LabelsFront"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Gültig bis/Date of Expiry"
+
+[node name="LabelsBack" type="Control" parent="CanvasLayer/Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/LabelsBack"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Augenfarbe/Color of eyes"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/LabelsBack"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Größe/Height"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/LabelsBack"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Behörde/Authority"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control/LabelsBack"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Anschrift/Adresse"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/LabelsBack/Label4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Straße:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/LabelsBack/Label4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hausnummer:"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/LabelsBack/Label4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Stadt:"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control/LabelsBack/Label4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PLZ:"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control/LabelsBack"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Ordens- oder Künstlername/Religious name or pseudonym"
