@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dytyusgqbpqje"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_6ywc2"]
+[ext_resource type="Texture2D" uid="uid://bfijhd00gkytg" path="res://blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83bued1.webp" id="1_i1h4m"]
+[ext_resource type="Texture2D" uid="uid://dilhcmgvosm8q" path="res://blaupause-für-den-personalausweis-von-gurkistan-v0-8ouoxhq1bued1.webp" id="2_linfi"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6ywc2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+tab_alignment = 2
+current_tab = 1
+
+[node name="TabBar" type="TabBar" parent="CanvasLayer/Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TabBar2" type="TabBar" parent="CanvasLayer/Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/TabContainer/TabBar2"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1" type="TextureRect" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 5)
+layout_mode = 2
+texture = ExtResource("2_linfi")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1" type="TextureRect" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_i1h4m")
+expand_mode = 5
