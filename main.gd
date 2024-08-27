@@ -29,27 +29,41 @@ extends Node2D
 @onready var ordensname: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Ordensname"
 @onready var anschrift: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Anschrift"
 
+@onready var random_numbers_and_characters: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1/RandomNumbersAndCharacters"
 
 @onready var tab_container: TabContainer = $CanvasLayer/Control/TabContainer
 
+var letter_array = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Y", "X", "C", "V", "B", "N", "M"]
+var upper_identification : Array
+var upper_id_str : String
 
 var month_value
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	for i in range(9):
+		i+=1
+		var decide = randi_range(0,1)
+		if decide == 1:
+			upper_identification.append(letter_array.pick_random())
+		else: upper_identification.append(randi_range(1,9))
+	
 	tab_container.set_current_tab(0)
-	#var date = Time.get_datetime_dict_from_system()
-	#var day = date["day"]
-	#var month = date["month"]
-	#var year = date["year"]
-	#if day < 10:
-		#day = "0%s" % [day]
-	#if month < 10:
-		#month_value = "0%s" % [month]
-		#print(month_value)
-	#else: month_value = month
-	#year += 6
-	#print(year)
-	#expiry_label.text = "%s.%s.%s" % [day, month_value, year]
+	var date = Time.get_datetime_dict_from_system()
+	var day = date["day"]
+	var month = date["month"]
+	var year = date["year"]
+	if day < 10:
+		day = "0%s" % [day]
+	if month < 10:
+		month_value = "0%s" % [month]
+		print(month_value)
+	else: month_value = month
+	datum.text = "%s.%s.%s" % [day, month_value, year]
+	year += 6
+	print(year)
+	expiry.text = "%s.%s.%s" % [day, month_value, year]
+#	expiry_label.text = "%s.%s.%s" % [day, month_value, year]
 	
 
 
@@ -72,7 +86,17 @@ func generate() -> void:
 	grose.text = height.text
 	augenfarbe.text = eyecolour.text
 	ordensname.text = weirdname.text
+	anschrift.text = "%s %s\n%s\n%s\n" % [street.text, hausnummer.text, city.text, plz.text]
+	upper_id_str = array_to_string(upper_identification)
+	random_numbers_and_characters.text = upper_id_str
 
 func _on_tab_container_tab_changed(tab: int) -> void:
 	if tab == 1:
 		generate()
+
+
+func array_to_string(arr: Array) -> String:
+	var s = ""
+	for i in arr:
+		s += str(i)
+	return s
