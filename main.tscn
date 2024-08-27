@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_6ywc2"]
 [ext_resource type="Texture2D" uid="uid://bfijhd00gkytg" path="res://blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83bued1.webp" id="1_i1h4m"]
+[ext_resource type="FontFile" uid="uid://ckd36ho8v3jqq" path="res://Work_Sans/WorkSans-VariableFont_wght.ttf" id="2_5v4or"]
 [ext_resource type="Texture2D" uid="uid://dilhcmgvosm8q" path="res://blaupause-für-den-personalausweis-von-gurkistan-v0-8ouoxhq1bued1.webp" id="2_linfi"]
-[ext_resource type="FontFile" uid="uid://bhmnvdv4ft7ji" path="res://Roboto/Roboto-Medium.ttf" id="2_ypl2n"]
 
 [sub_resource type="Theme" id="Theme_tnqsc"]
-default_font = ExtResource("2_ypl2n")
+default_font = ExtResource("2_5v4or")
 default_font_size = 24
 
 [node name="Main" type="Node2D"]
@@ -30,6 +30,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.3674
+offset_top = 5.6123
+offset_right = 3.36743
+offset_bottom = 5.6123
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 16
@@ -66,7 +70,7 @@ text = "[a] Name/Surname"
 [node name="Name2" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 30)
 layout_mode = 2
-placeholder_text = "Bitte ausfüllen"
+placeholder_text = "Normgurke"
 
 [node name="Bday" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -75,6 +79,7 @@ text = "[b] Geburtsname/ Name at Birth"
 [node name="BName" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 30)
 layout_mode = 2
+placeholder_text = "geb. Nichtnormgurke"
 
 [node name="Label3" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -83,7 +88,7 @@ text = "Vorname/Given names"
 [node name="Vorname" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 30)
 layout_mode = 2
-placeholder_text = "Bitte ausfüllen"
+placeholder_text = "Gürki"
 
 [node name="Label4" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -92,7 +97,7 @@ text = "Geburtstag/Date of Birth"
 [node name="Bday3" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 30)
 layout_mode = 2
-placeholder_text = "Bitte ausfüllen"
+placeholder_text = "20.07.1998"
 
 [node name="Label5" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -101,7 +106,7 @@ text = "Gebortsort/Place of Birth"
 [node name="PlaceBirth" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 30)
 layout_mode = 2
-placeholder_text = "Bitte ausfüllen"
+placeholder_text = "Gurklinga"
 
 [node name="Label6" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 visible = false
@@ -128,7 +133,7 @@ text = "Größe/Height"
 
 [node name="Height" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
-placeholder_text = "Bitte ausfüllen"
+placeholder_text = "12,3 cm"
 
 [node name="Label9" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 visible = false
@@ -141,10 +146,12 @@ layout_mode = 2
 placeholder_text = "Bitte ausfüllen"
 
 [node name="Label10" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "Anschrift/Adress"
 
 [node name="Adress" type="LineEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
+visible = false
 layout_mode = 2
 placeholder_text = "Bitte ausfüllen"
 
@@ -155,6 +162,7 @@ Religious name or pseudonym"
 
 [node name="Ordensname" type="TextEdit" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
+placeholder_text = "Der Gurkinator"
 
 [node name="Label12" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -283,10 +291,18 @@ offset_bottom = 385.0
 
 [node name="RandomNumbersAndCharacters" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1"]
 layout_mode = 0
-offset_left = 550.0
-offset_top = 25.0
-offset_right = 590.0
-offset_bottom = 54.0
+offset_left = 535.135
+offset_top = 21.4324
+offset_right = 575.135
+offset_bottom = 50.4324
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="RandomNumbersAndCharacters2" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1"]
+layout_mode = 0
+offset_left = 579.142
+offset_top = 328.117
+offset_right = 619.142
+offset_bottom = 357.117
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1" type="TextureRect" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer"]
@@ -350,31 +366,37 @@ offset_bottom = 338.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 8.0
-offset_right = 232.0
-offset_bottom = 37.0
+offset_left = 103.622
+offset_top = 4.62158
+offset_right = 223.622
+offset_bottom = 33.6216
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 40.0
-offset_right = 184.0
-offset_bottom = 69.0
+offset_left = 23.4853
+offset_top = 41.9999
+offset_right = 191.485
+offset_bottom = 70.9999
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Label3" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control"]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 40.0
-offset_right = 440.0
-offset_bottom = 69.0
+offset_left = 205.657
+offset_top = 42.0
+offset_right = 437.657
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Label4" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control"]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 40.0
-offset_right = 576.0
-offset_bottom = 69.0
+offset_left = 509.194
+offset_top = 40.8776
+offset_right = 573.194
+offset_bottom = 69.8776
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3454"
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control"]
 layout_mode = 0
@@ -382,6 +404,7 @@ offset_left = 8.0
 offset_top = 80.0
 offset_right = 200.0
 offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control"]
@@ -390,6 +413,7 @@ offset_left = 240.0
 offset_top = 80.0
 offset_right = 392.0
 offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="LabelsFront" type="Control" parent="CanvasLayer/Control"]

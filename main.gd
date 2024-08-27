@@ -30,6 +30,27 @@ extends Node2D
 @onready var anschrift: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Anschrift"
 
 @onready var random_numbers_and_characters: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1/RandomNumbersAndCharacters"
+@onready var pass_num_rueck: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control/Label"
+
+@onready var label_4: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control/Label4"
+var four_string_id : Array
+var four_string_arr_sr : String
+
+@onready var label_2: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control/Label2"
+var two_string_id : Array
+var two_string_arr_sr : String
+
+@onready var label_3: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control/Label3"
+var three_string_id : Array
+var three_string_arr_sr : String
+
+@onready var label_5: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control/Label5"
+@onready var label_6: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1/Control/Label6"
+
+@onready var random_numbers_and_characters_2: Label = $"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1/RandomNumbersAndCharacters2"
+var six_string_id : Array
+var six_string_arr_sr : String
+
 
 @onready var tab_container: TabContainer = $CanvasLayer/Control/TabContainer
 
@@ -43,10 +64,27 @@ func _ready() -> void:
 	
 	for i in range(9):
 		i+=1
+		#the following could be a function for reuse
 		var decide = randi_range(0,1)
 		if decide == 1:
 			upper_identification.append(letter_array.pick_random())
 		else: upper_identification.append(randi_range(1,9))
+	
+	for i in range(5):
+		i+=1
+		four_string_id.append(randi_range(1,9))
+	
+	for i in range(12):
+		i+=1
+		two_string_id.append(randi_range(1,9))
+	
+	for i in range(6):
+		i+=1
+		three_string_id.append(randi_range(1,9))
+	
+	for i in range(6):
+		i+=1
+		six_string_id.append(randi_range(1,9))
 	
 	tab_container.set_current_tab(0)
 	var date = Time.get_datetime_dict_from_system()
@@ -89,6 +127,16 @@ func generate() -> void:
 	anschrift.text = "%s %s\n%s\n%s\n" % [street.text, hausnummer.text, city.text, plz.text]
 	upper_id_str = array_to_string(upper_identification)
 	random_numbers_and_characters.text = upper_id_str
+	pass_num_rueck.text = upper_id_str
+	four_string_arr_sr = array_to_string(four_string_id)
+	label_4.text = four_string_arr_sr
+	label_2.text = "<<%s<" % [bday_3.text]
+	three_string_arr_sr = array_to_string(three_string_id)
+	label_3.text = "<<<<<%s<<<<<" % [three_string_arr_sr]
+	label_5.text = name_2.text
+	label_6.text = firstname.text
+	six_string_arr_sr = array_to_string(six_string_id)
+	random_numbers_and_characters_2.text = six_string_arr_sr
 
 func _on_tab_container_tab_changed(tab: int) -> void:
 	if tab == 1:
