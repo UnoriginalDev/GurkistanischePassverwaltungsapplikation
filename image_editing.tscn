@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c28blqy8e1kk7"]
+
+[ext_resource type="Script" path="res://ImageEditingCam.gd" id="1_3lb3h"]
+
+[node name="ImageEditing" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1311.0
+offset_right = 31.0
+offset_bottom = -1280.0
+grow_vertical = 0
+text = "OK"
+
+[node name="ImageEditingCam" type="Camera2D" parent="."]
+script = ExtResource("1_3lb3h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

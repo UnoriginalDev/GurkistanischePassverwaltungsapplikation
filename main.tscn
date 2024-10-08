@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dytyusgqbpqje"]
+[gd_scene load_steps=8 format=3 uid="uid://dytyusgqbpqje"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6ywc2"]
 [ext_resource type="Texture2D" uid="uid://bfijhd00gkytg" path="res://blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83bued1.webp" id="1_i1h4m"]
 [ext_resource type="FontFile" uid="uid://ckd36ho8v3jqq" path="res://Work_Sans/WorkSans-VariableFont_wght.ttf" id="2_5v4or"]
 [ext_resource type="Texture2D" uid="uid://dilhcmgvosm8q" path="res://blaupause-für-den-personalausweis-von-gurkistan-v0-8ouoxhq1bued1.webp" id="2_linfi"]
+[ext_resource type="PackedScene" uid="uid://c28blqy8e1kk7" path="res://image_editing.tscn" id="5_8oc0a"]
 
 [sub_resource type="Theme" id="Theme_tnqsc"]
 default_font = ExtResource("2_5v4or")
 default_font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2toi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1024
+border_width_top = 1024
+border_width_right = 1024
+border_width_bottom = 1024
+border_color = Color(0, 0, 0, 0)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6ywc2")
@@ -38,8 +47,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 16
 tab_alignment = 2
+current_tab = 2
 
 [node name="TabBar" type="TabBar" parent="CanvasLayer/Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -196,7 +207,20 @@ text = "PLZ:"
 layout_mode = 2
 placeholder_text = "Bitte ausfüllen"
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "Passbild Auswählen"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/VBoxContainer/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 text = "Generieren"
 
@@ -304,6 +328,13 @@ offset_top = 328.117
 offset_right = 619.142
 offset_bottom = 357.117
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Bild" type="TextureRect" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 86.0
+offset_right = 74.0
+offset_bottom = 126.0
 
 [node name="Blaupause-für-den-personalausweis-von-gurkistan-v0-trjopw83Bued1" type="TextureRect" parent="CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -416,6 +447,63 @@ offset_bottom = 109.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
+[node name="BildEditierung" type="TabBar" parent="CanvasLayer/Control/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/TabContainer/BildEditierung"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/Control/TabContainer/BildEditierung/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/TabContainer/BildEditierung/MarginContainer/AspectRatioContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2048
+theme_override_constants/margin_top = 2048
+theme_override_constants/margin_right = 2048
+theme_override_constants/margin_bottom = 2048
+
+[node name="CutOut" type="Panel" parent="CanvasLayer/Control/TabContainer/BildEditierung/MarginContainer/AspectRatioContainer/MarginContainer"]
+custom_minimum_size = Vector2(413, 531)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2toi")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/TabContainer/BildEditierung"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/TabContainer/BildEditierung/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="ImportBtn" type="Button" parent="CanvasLayer/Control/TabContainer/BildEditierung/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Bild Importieren"
+
+[node name="OKBtn" type="Button" parent="CanvasLayer/Control/TabContainer/BildEditierung/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Ok"
+
 [node name="LabelsFront" type="Control" parent="CanvasLayer/Control"]
 visible = false
 anchors_preset = 0
@@ -518,5 +606,18 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Ordens- oder Künstlername/Religious name or pseudonym"
 
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(495, 349)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+root_subfolder = "C:\\Users\\julie\\Pictures"
+
+[node name="ImageEditing" parent="." instance=ExtResource("5_8oc0a")]
+visible = false
+
 [connection signal="tab_changed" from="CanvasLayer/Control/TabContainer" to="." method="_on_tab_container_tab_changed"]
-[connection signal="pressed" from="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

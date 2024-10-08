@@ -62,6 +62,8 @@ var month_value
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	$FileDialog.add_filter("*.png, *.jpg")
+	
 	for i in range(9):
 		i+=1
 		#the following could be a function for reuse
@@ -97,10 +99,10 @@ func _ready() -> void:
 		month_value = "0%s" % [month]
 		print(month_value)
 	else: month_value = month
-	datum.text = "%s.%s.%s" % [day, month_value, year]
+#	datum.text = "%s.%s.%s" % [day, month_value, year]
 	year += 6
 	print(year)
-	expiry.text = "%s.%s.%s" % [day, month_value, year]
+#	expiry.text = "%s.%s.%s" % [day, month_value, year]
 #	expiry_label.text = "%s.%s.%s" % [day, month_value, year]
 	
 
@@ -148,3 +150,19 @@ func array_to_string(arr: Array) -> String:
 	for i in arr:
 		s += str(i)
 	return s
+
+
+func _on_button_2_pressed() -> void:
+	$FileDialog.popup()
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	var image = Image.new()
+	image.load(path)
+	var texture = ImageTexture.new()
+	texture.set_image(image)
+#	$"CanvasLayer/Control/TabContainer/TabBar2/MarginContainer/VBoxContainer/Blaupause-für-den-personalausweis-von-gurkistan-v0-8Ouoxhq1Bued1/Bild".texture = texture
+#	$CanvasLayer/Control/TabContainer/TabBar/MarginContainer/ScrollContainer/GridContainer/VBoxContainer/Button2/TextureRect.texture = texture
+	$ImageEditing/TextureRect.texture = texture
+	$CanvasLayer.hide()
+	$ImageEditing.show()
